@@ -10,8 +10,8 @@
         <property name="c_name" column="c_name"/>
         <property name="c_phone" column="c_phone"/>
         <property name="c_source" column="c_source"/>
-        <!--使用set标签，表示所有联系的客户-->
-        <set name="salespersonSet">
+        <!--使用set标签，表示所有销售联系人-->
+        <set name="salespersonSet" cascade="save-update,delete" inverse="true">
             <!--双向维护外键，hibernate机制：在1和多的哪一方都配置外键-->
             <key column="sc_id"></key>
             <one-to-many class="com.study.entity.Salesperson"></one-to-many>

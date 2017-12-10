@@ -120,28 +120,5 @@ public class HibernateTest {
         }
     }
 
-    @Test
-    public void TestOne_to_Many(){
-        SessionFactory sessionFactory = null;
-        Session session = null;
-        Transaction transaction=null;
-        try{
-//            sessionFactory = HibernateUtils.getSessionFactory();
-            session = HibernateUtils.getSessionObject();
-            transaction = session.beginTransaction();
-            User user = new User();
-            user.setUsername("小马");
-            user.setPassword("45465");
-            user.setAddress("陕西");
-            session.save(user);
-            transaction.commit();
-        }catch(Exception e){
-            e.printStackTrace();
-            transaction.rollback();
-        }finally {
-            session.close();
-            //项目中不需要关闭
-//            sessionFactory.close();
-        }
-    }
+
 }

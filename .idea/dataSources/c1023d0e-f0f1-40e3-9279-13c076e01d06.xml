@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="hibernate@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="hibernate">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="car"/>
+    <schema id="4" parent="1" name="db_expressprint"/>
+    <schema id="5" parent="1" name="db_recover"/>
+    <schema id="6" parent="1" name="db_taxt"/>
+    <schema id="7" parent="1" name="eudss"/>
+    <schema id="8" parent="1" name="eudsstest"/>
+    <schema id="9" parent="1" name="exemp2"/>
+    <schema id="10" parent="1" name="information_schema"/>
+    <schema id="11" parent="1" name="jdsc"/>
+    <schema id="12" parent="1" name="jd_mysql"/>
+    <schema id="13" parent="1" name="mysql"/>
+    <schema id="14" parent="1" name="performance_schema"/>
+    <schema id="15" parent="1" name="sams"/>
+    <schema id="16" parent="1" name="shiro"/>
+    <schema id="17" parent="1" name="stuinfo"/>
+    <schema id="18" parent="1" name="system"/>
+    <schema id="19" parent="1" name="test"/>
+    <schema id="20" parent="1" name="text"/>
+    <schema id="21" parent="1" name="t_user"/>
+    <schema id="22" parent="1" name="web"/>
+    <schema id="23" parent="1" name="wxobao"/>
+    <table id="24" parent="2" name="h_customer"/>
+    <table id="25" parent="2" name="h_user"/>
+    <table id="26" parent="2" name="s_salesperson"/>
+    <column id="27" parent="24" name="c_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="28" parent="24" name="c_name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="29" parent="24" name="c_phone">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="30" parent="24" name="c_source">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="31" parent="24" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>c_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="32" parent="25" name="uid">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="33" parent="25" name="username">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="34" parent="25" name="password">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="35" parent="25" name="address">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="36" parent="25" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>uid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="37" parent="26" name="s_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="38" parent="26" name="s_name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="39" parent="26" name="s_sex">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="40" parent="26" name="s_phone">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="41" parent="26" name="sc_id">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="42" parent="26" name="FKcfd58ijou8if4ipvhclouoc2q">
+      <ColNames>sc_id</ColNames>
+    </index>
+    <key id="43" parent="26" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>s_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="44" parent="26" name="FKcfd58ijou8if4ipvhclouoc2q">
+      <ColNames>sc_id</ColNames>
+      <RefSchemaName>hibernate</RefSchemaName>
+      <RefTableName>h_customer</RefTableName>
+      <RefColNames>c_id</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>

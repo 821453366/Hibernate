@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- - 配置数据库信息-->
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernate?characterEncoding=utf8</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
+        <!-- - 配置hibernate信息（可选）-->
+        <!--输出底层sql-->
+        <property name="hibernate.show_sql">true</property>
+        <!--输出底层sql语句格式-->
+        <property name="hibernate.format_sql">true</property>
+        <!--hibernate 帮创建表，需要配置。update：如果有表进行更新，没有的话进行创建-->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <!--hibernate核心配置文件中配置绑定session-->
+        <property name="hibernate.current_session_context_class">thread</property>
+        <!--配置数据库方言 在mysql里面实现分页，关键字limit 只能使用mysql里面 ，在oracle数据库，实现分页rownum-->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL55Dialect</property>
+        <!-- - 将映射文件加载到核心文件中(必须)-->
+        <mapping resource="mapping/User.hbm.xml"></mapping>
+        <mapping resource="mapping/Customer.hbm.xml"></mapping>
+        <mapping resource="mapping/Salesperson.hbm.xml"></mapping>
+    </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.study.entity.Customer" table="h_customer">
+        <id name="c_id" column="c_id">
+            <generator class="native"/>
+        </id>
+        <property name="c_name" column="c_name"/>
+        <property name="c_phone" column="c_phone"/>
+        <property name="c_source" column="c_source"/>
+        <!--使用set标签，表示所有联系的客户-->
+        <set name="salespersonSet">
+            <!--双向维护外键，hibernate机制：在1和多的哪一方都配置外键-->
+            <key column="sc_id"></key>
+            <one-to-many class="com.study.entity.Salesperson"></one-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

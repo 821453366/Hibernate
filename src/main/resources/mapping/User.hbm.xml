@@ -10,5 +10,12 @@
         <property name="username" column="username"></property>
         <property name="password" column="password"></property>
         <property name="address" column="address"></property>
+        <!--name:角色set集合名称  table属性：第三张表名称-->
+        <set name="roles" table="user_role" cascade="save-update">
+            <!--第三张表中的的外键名称-->
+            <key column="userid"></key>
+            <!--角色全路径和角色第三张表的外键名称-->
+            <many-to-many class="com.study.entity.Role" column="roleid"></many-to-many>
+        </set>
     </class>
 </hibernate-mapping>

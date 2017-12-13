@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+    <!DOCTYPE hibernate-mapping PUBLIC
+            "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+            "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.study.entity.Role" table="h_role">
+        <id name="ro_id" column="uid">
+            <generator class="native"></generator>
+        </id>
+        <property name="ro_name" column="ro_name"></property>
+        <property name="ro_memo" column="ro_memo"></property>
+        <set name="users" table="user_role">
+            <!--角色在第三章表中的外键-->
+            <key column="roleid"></key>
+            <many-to-many class="com.study.entity.User" column="userid"></many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

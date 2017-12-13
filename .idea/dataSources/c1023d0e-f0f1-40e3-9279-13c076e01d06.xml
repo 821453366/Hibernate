@@ -27,90 +27,143 @@
     <schema id="21" parent="1" name="t_user"/>
     <schema id="22" parent="1" name="web"/>
     <schema id="23" parent="1" name="wxobao"/>
-    <table id="24" parent="2" name="h_customer"/>
-    <table id="25" parent="2" name="h_user"/>
-    <table id="26" parent="2" name="s_salesperson"/>
-    <column id="27" parent="24" name="c_id">
+    <schema id="24" parent="1" name="visalie"/>
+    <table id="25" parent="2" name="h_customer"/>
+    <table id="26" parent="2" name="h_role"/>
+    <table id="27" parent="2" name="h_user"/>
+    <table id="28" parent="2" name="s_salesperson"/>
+    <table id="29" parent="2" name="user_role"/>
+    <column id="30" parent="25" name="c_id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="28" parent="24" name="c_name">
+    <column id="31" parent="25" name="c_name">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="29" parent="24" name="c_phone">
+    <column id="32" parent="25" name="c_phone">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="30" parent="24" name="c_source">
+    <column id="33" parent="25" name="c_source">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <key id="31" parent="24" name="PRIMARY">
+    <key id="34" parent="25" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>c_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="32" parent="25" name="uid">
+    <column id="35" parent="26" name="uid">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="33" parent="25" name="username">
+    <column id="36" parent="26" name="ro_name">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="34" parent="25" name="password">
+    <column id="37" parent="26" name="ro_memo">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="35" parent="25" name="address">
-      <Position>4</Position>
-      <DataType>varchar(255)|0</DataType>
-    </column>
-    <key id="36" parent="25" name="PRIMARY">
+    <key id="38" parent="26" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>uid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="37" parent="26" name="s_id">
+    <column id="39" parent="27" name="uid">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="38" parent="26" name="s_name">
+    <column id="40" parent="27" name="username">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="39" parent="26" name="s_sex">
+    <column id="41" parent="27" name="password">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="40" parent="26" name="s_phone">
+    <column id="42" parent="27" name="address">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="41" parent="26" name="sc_id">
+    <key id="43" parent="27" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>uid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="44" parent="28" name="s_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="45" parent="28" name="s_name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="46" parent="28" name="s_sex">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="47" parent="28" name="s_phone">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="48" parent="28" name="sc_id">
       <Position>5</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <index id="42" parent="26" name="FKcfd58ijou8if4ipvhclouoc2q">
+    <index id="49" parent="28" name="FKcfd58ijou8if4ipvhclouoc2q">
       <ColNames>sc_id</ColNames>
     </index>
-    <key id="43" parent="26" name="PRIMARY">
+    <key id="50" parent="28" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>s_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="44" parent="26" name="FKcfd58ijou8if4ipvhclouoc2q">
+    <foreign-key id="51" parent="28" name="FKcfd58ijou8if4ipvhclouoc2q">
       <ColNames>sc_id</ColNames>
       <RefSchemaName>hibernate</RefSchemaName>
       <RefTableName>h_customer</RefTableName>
       <RefColNames>c_id</RefColNames>
+    </foreign-key>
+    <column id="52" parent="29" name="userid">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="53" parent="29" name="roleid">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="54" parent="29" name="FKoggbai8vidq2jwhue8sx6ofct">
+      <ColNames>userid</ColNames>
+    </index>
+    <key id="55" parent="29" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>roleid
+userid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="56" parent="29" name="FKoggbai8vidq2jwhue8sx6ofct">
+      <ColNames>userid</ColNames>
+      <RefSchemaName>hibernate</RefSchemaName>
+      <RefTableName>h_user</RefTableName>
+      <RefColNames>uid</RefColNames>
+    </foreign-key>
+    <foreign-key id="57" parent="29" name="FKhiq5vbnbekgntq2yiuuhg3c5k">
+      <ColNames>roleid</ColNames>
+      <RefSchemaName>hibernate</RefSchemaName>
+      <RefTableName>h_role</RefTableName>
+      <RefColNames>uid</RefColNames>
     </foreign-key>
   </database-model>
 </dataSource>

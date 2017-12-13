@@ -5,9 +5,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 
+
 /**
- * @author 马欢欢
- * @date 2017/12/7
+ * @author pc
  */
 public class HibernateUtils {
     private static Configuration configuration = null;

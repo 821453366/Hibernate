@@ -1,15 +1,30 @@
 package com.study.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  *
  * @author 马欢欢
  * @date 2017/12/4
  */
-public class User {
+    public class User {
     private int uid;
     private String username;
     private String password;
     private String address;
+    /**
+     *一个用户多个角色
+     */
+    private Set<Role> roles = new HashSet<Role>();
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
 
     public int getUid() {
         return uid;

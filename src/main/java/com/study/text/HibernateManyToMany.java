@@ -36,11 +36,59 @@ public class HibernateManyToMany {
             r1.setRo_name("总经理");
             r1.setRo_memo("总经理描述");
             Role r2 = new Role();
-            r2.setRo_name("总经理");
-            r2.setRo_memo("总经理描述");
+            r2.setRo_name("保安");
+            r2.setRo_memo("保安描述");
             Role r3 = new Role();
-            r3.setRo_name("总经理");
-            r3.setRo_memo("总经理描述");
+            r3.setRo_name("司机");
+            r3.setRo_memo("司机描述");
+            //给用户1创建r1和r2的角色
+            user1.getRoles().add(r1);
+            user1.getRoles().add(r2);
+            //给user2创建r2和r3的角色
+            user2.getRoles().add(r2);
+            user2.getRoles().add(r3);
+            //保存用户
+            session.save(user1);
+            session.save(user2);
+            transaction.commit();
+        }catch(Exception e){
+            e.printStackTrace();
+            transaction.rollback();
+        }finally {
+            session.close();
+        }
+    }
+
+    @Test
+    public void manyToManyTableTest(){
+        Session session = null;
+        Transaction transaction=null;
+        try{
+            session = HibernateUtils.getSessionObject();
+            transaction = session.beginTransaction();
+            User user =  session.get(User.class,3);
+            Role role = session.get(Role.class,2);
+            user.getRoles().add(role);
+            transaction.commit();
+        }catch(Exception e){
+            e.printStackTrace();
+            transaction.rollback();
+        }finally {
+            session.close();
+        }
+    }
+
+    @Test
+    public void manyToManyDeleteTest(){
+        Session session = null;
+        Transaction transaction=null;
+        try{
+            session = HibernateUtils.getSessionObject();
+            transaction = session.beginTransaction();
+            User user =  session.get(User.class,2);
+            Role role = session.get(Role.class,3)       ;
+            //让用户移除某个操作
+            user.getRoles().remove(role);
             transaction.commit();
         }catch(Exception e){
             e.printStackTrace();
